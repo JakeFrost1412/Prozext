@@ -1,8 +1,7 @@
 import React from 'react';  
 import _ from 'lodash';
-import Layout from './Layout';
 import Box from '@mui/material/Box';
-import Sidebar from './Sidebar';
+import './Treasury.css';
 
 export default class App extends React.Component {
 
@@ -101,305 +100,316 @@ export default class App extends React.Component {
         //console.log('Obj :',this.state)
         return (
         <>
-            <Sidebar />
-            <Layout />
-            
-            <h1 style={{paddingLeft: '25px', paddingTop: '-10'}}>Total: ${Math.round(this.state['items']['total_usd_value'] * 1000) / 1000}</h1>
-            <h1 style={{paddingLeft: '25px'}}>On-Chain Assets</h1>
-            <div style={{display: 'flex', flexDirection: 'row'}}>
-                <div style={{paddingLeft: '25px'}}>
-
-            
-    <Box component="first"
-      sx={{
-        width: '350px',
-        height: '350px',
-        display: 'block',
-        backgroundColor: 'primary.dark',
-        '&:hover': {
-          backgroundColor: 'primary.main',
-          opacity: [0.9, 0.8, 0.7],
-        },
-      }}><div style={{textAlign: 'center', paddingTop: '15px'}}>
-          <h3 style={{lineHeight: '10pt'}}>ETH</h3>
-            <h4>Total Balance</h4>
-            <h2 style={{lineHeight: '1pt'}}>${Math.round(_.get(this.state['items'], 'chain_list[0].usd_value') * 10000) / 10000}</h2>
-      </div>
-    </Box>
-    </div>
-
-
-    <div style={{paddingLeft: '20px'}}>
-    <Box component="second"
-      sx={{
-        width: '350px',
-        height: '350px',
-        display: 'block',
-        backgroundColor: 'primary.dark',
-        '&:hover': {
-          backgroundColor: 'primary.main',
-          opacity: [0.9, 0.8, 0.7],
-        },
-      }}><div style={{textAlign: 'center', paddingTop: '15px'}}>
-            <h3 style={{lineHeight: '10pt'}}>FTM</h3>
-            <h4>Total Balance</h4>
-            <h2 style={{lineHeight: '1pt'}}>${Math.round(_.get(this.state['items'], 'chain_list[4].usd_value') * 10000) / 10000}</h2>
-      </div>
-    </Box>
-    </div>
-
-
-    <div style={{paddingLeft: '20px'}}>
-    <Box component="third"
-      sx={{
-        width: '350px',
-        height: '350px',
-        display: 'block',
-        backgroundColor: 'primary.dark',
-        '&:hover': {
-          backgroundColor: 'primary.main',
-          opacity: [0.9, 0.8, 0.7],
-        },
-      }}><div style={{textAlign: 'center', paddingTop: '15px'}}>
-            <h3 style={{lineHeight: '10pt'}}>AVAX</h3>
-            <h4>Total Balance</h4>
-            <h2 style={{lineHeight: '1pt'}}>${Math.round(_.get(this.state['items'], 'chain_list[7].usd_value') * 10000) / 10000}</h2>
-      </div>
-    </Box>
-</div>
-<div style={{paddingLeft: '20px'}}>
-    <Box component="fourth"
-      sx={{
-        width: '350px',
-        height: '350px',
-        display: 'block',
-        paddingLeft: '20px',
-        backgroundColor: 'primary.dark',
-        '&:hover': {
-          backgroundColor: 'primary.main',
-          opacity: [0.9, 0.8, 0.7],
-        },
-      }}><div style={{textAlign: 'center', paddingTop: '15px'}}>
-            <h3 style={{lineHeight: '10pt'}}>AURORA</h3>
-            <h4>Total Balance</h4>
-            <h2 style={{lineHeight: '1px'}}>${Math.round(_.get(this.state['items'], 'chain_list[16].usd_value') * 10000) / 10000}</h2>
-      </div>
-    </Box>
-    </div>
-    
-    </div>
-    <h1 style={{paddingLeft: '25px'}}>Protocols</h1>
-
-    <div style={{paddingLeft: '30px', lineHeight: '1px'}}>
-                <h3>{this.state.aave2.name}</h3>
-                <h5>{this.state.aave2.chain} </h5>
-
-                <table style={{width: '100%', backgroundColor: 'lightcoral'}}>
-                <tr>
-                <td style={{textAlign: 'left', width: '33%'}}><h4>{_.get(this.state.aave2, 'portfolio_item_list[0].detail.supply_token_list[0].name')}</h4></td>
-                <td style={{textAlign: 'center', width: '33%'}}><h4> Supply </h4></td>
-                <td style={{textAlign: 'right', width: '33%', paddingRight: '30px'}}><h4>{_.get(this.state.aave2, 'portfolio_item_list[0].detail.supply_token_list[0].amount')}</h4></td>
-                </tr>
-                <tr>
-                <td style={{textAlign: 'left', width: '33%'}}><h4>{_.get(this.state.aave2, 'portfolio_item_list[0].detail.reward_token_list[0].name')} </h4></td>
-                <td style={{textAlign: 'center', width: '33%'}}><h4>Reward</h4> </td>
-                <td style={{textAlign: 'right', width: '33%', paddingRight: '30px'}}><h4>{_.get(this.state.aave2, 'portfolio_item_list[0].detail.reward_token_list[0].amount')}</h4></td>
-                </tr>
-                </table>
-
-
-                <h3>{this.state.olympusdao.name}</h3>
-                <h5>{this.state.olympusdao.chain} </h5>
-
-                <table style={{width: '100%', backgroundColor: 'lightcoral'}}>
-                <tr>
-                <td style={{textAlign: 'left', width: '33%'}}><h4>{_.get(this.state.olympusdao, 'portfolio_item_list[0].detail.supply_token_list[0].name')}</h4></td>
-                <td style={{textAlign: 'center', width: '33%'}}><h4> Supply </h4></td>
-                <td style={{textAlign: 'right', width: '33%', paddingRight: '30px'}}><h4>{_.get(this.state.olympusdao, 'portfolio_item_list[0].detail.supply_token_list[0].amount')}</h4></td>
-                </tr>
-                </table>
-
-                <h3>{this.state.ftm_liquiddriver.name}</h3>
-                <h5>{this.state.ftm_liquiddriver.chain} </h5>
-
-                <table style={{width: '100%', backgroundColor: 'lightblue'}}>
-                <tr>
-                <td style={{textAlign: 'left', width: '33%'}}><h4>{_.get(this.state.ftm_liquiddriver, 'portfolio_item_list[0].detail.supply_token_list[0].name')}</h4></td>
-                <td style={{textAlign: 'center', width: '33%'}}><h4> Supply </h4></td>
-                <td style={{textAlign: 'right', width: '33%', paddingRight: '30px'}}><h4>{_.get(this.state.ftm_liquiddriver, 'portfolio_item_list[0].detail.supply_token_list[0].amount')}</h4></td>
-                </tr>
-                </table>
-
-                <h3>{this.state.ftm_yearn2.name}</h3>
-                <h5>{this.state.ftm_yearn2.chain} </h5>
-
-                <table style={{width: '100%', backgroundColor: 'lightblue'}}>
-                <tr>
-                <td style={{textAlign: 'left', width: '33%'}}><h4>{_.get(this.state.ftm_yearn2, 'portfolio_item_list[0].detail.supply_token_list[0].name')}</h4></td>
-                <td style={{textAlign: 'center', width: '33%'}}><h4> Supply </h4></td>
-                <td style={{textAlign: 'right', width: '33%', paddingRight: '30px'}}><h4>{_.get(this.state.ftm_yearn2, 'portfolio_item_list[0].detail.supply_token_list[0].amount')}</h4></td>
-                </tr>
-                </table>
-
-
-                <h3>{this.state.ftm_morpheusswap.name}</h3>
-                <h5>{this.state.ftm_morpheusswap.chain} </h5>
-
-                <table style={{width: '100%', backgroundColor: 'lightblue'}}>
-                <tr>
-                <td style={{textAlign: 'left', width: '33%'}}><h4>{_.get(this.state.ftm_morpheusswap, 'portfolio_item_list[0].detail.supply_token_list[0].name')}</h4></td>
-                <td style={{textAlign: 'center', width: '33%'}}><h4> Supply </h4></td>
-                <td style={{textAlign: 'right', width: '33%', paddingRight: '30px'}}><h4>{_.get(this.state.ftm_morpheusswap, 'portfolio_item_list[0].detail.supply_token_list[0].amount')}</h4></td>
-                </tr>
-                <tr>
-                <td style={{textAlign: 'left', width: '33%'}}><h4>{_.get(this.state.ftm_morpheusswap, 'portfolio_item_list[0].detail.reward_token_list[0].name')} </h4></td>
-                <td style={{textAlign: 'center', width: '33%'}}><h4>Reward</h4> </td>
-                <td style={{textAlign: 'right', width: '33%', paddingRight: '30px'}}><h4>{_.get(this.state.ftm_morpheusswap, 'portfolio_item_list[0].detail.reward_token_list[0].amount')}</h4></td>
-                </tr>
-                </table>
-
-                <h3>{this.state.ftm_soul.name}</h3>
-                <h5>{this.state.ftm_soul.chain} </h5>
-
-                <table style={{width: '100%', backgroundColor: 'lightblue'}}>
-                <tr>
-                <td style={{textAlign: 'left', width: '33%'}}><h4>{_.get(this.state.ftm_soul, 'portfolio_item_list[0].detail.supply_token_list[0].name')}</h4></td>
-                <td style={{textAlign: 'center', width: '33%'}}><h4> Supply </h4></td>
-                <td style={{textAlign: 'right', width: '33%', paddingRight: '30px'}}><h4>{_.get(this.state.ftm_soul, 'portfolio_item_list[0].detail.supply_token_list[0].amount')}</h4></td>
-                </tr>
-                <tr>
-                <td style={{textAlign: 'left', width: '33%'}}><h4>{_.get(this.state.ftm_soul, 'portfolio_item_list[0].detail.reward_token_list[0].name')} </h4></td>
-                <td style={{textAlign: 'center', width: '33%'}}><h4>Reward</h4> </td>
-                <td style={{textAlign: 'right', width: '33%', paddingRight: '30px'}}><h4>{_.get(this.state.ftm_soul, 'portfolio_item_list[0].detail.reward_token_list[0].amount')}</h4></td>
-                </tr>
-                </table>
-
-                <h3>{this.state.ftm_yieldwolf.name}</h3>
-                <h5>{this.state.ftm_yieldwolf.chain} </h5>
-
-                <table style={{width: '100%', backgroundColor: 'lightblue'}}>
-                <tr>
-                <td style={{textAlign: 'left', width: '33%'}}><h4>{_.get(this.state.ftm_yieldwolf, 'portfolio_item_list[0].detail.supply_token_list[0].name')}</h4></td>
-                <td style={{textAlign: 'center', width: '33%'}}><h4> Supply </h4></td>
-                <td style={{textAlign: 'right', width: '33%', paddingRight: '30px'}}><h4>{_.get(this.state.ftm_yieldwolf, 'portfolio_item_list[0].detail.supply_token_list[0].amount')}</h4></td>
-                </tr>
-                </table>
-
-                <h3>{this.state.ftm_3omb.name}</h3>
-                <h5>{this.state.ftm_3omb.chain} </h5>
-
-                <table style={{width: '100%', backgroundColor: 'lightblue'}}>
-                <tr>
-                <td style={{textAlign: 'left', width: '33%'}}><h4>{_.get(this.state.ftm_3omb, 'portfolio_item_list[0].detail.supply_token_list[0].name')}</h4></td>
-                <td style={{textAlign: 'center', width: '33%'}}><h4> Supply </h4></td>
-                <td style={{textAlign: 'right', width: '33%', paddingRight: '30px'}}><h4>{_.get(this.state.ftm_3omb, 'portfolio_item_list[0].detail.supply_token_list[0].amount')}</h4></td>
-                </tr>
-                <tr>
-                <td style={{textAlign: 'left', width: '33%'}}><h4>{_.get(this.state.ftm_3omb, 'portfolio_item_list[0].detail.reward_token_list[0].name')} </h4></td>
-                <td style={{textAlign: 'center', width: '33%'}}><h4>Reward</h4> </td>
-                <td style={{textAlign: 'right', width: '33%', paddingRight: '30px'}}><h4>{_.get(this.state.ftm_3omb, 'portfolio_item_list[0].detail.reward_token_list[0].amount')}</h4></td>
-                </tr>
-                </table>
-
-                <h3>{this.state.ftm_devil.name}</h3>
-                <h5>{this.state.ftm_devil.chain} </h5>
-        
-                <table style={{width: '100%', backgroundColor: 'lightblue'}}>
-                <tr>
-                <td style={{textAlign: 'left', width: '33%'}}><h4>{_.get(this.state.ftm_devil, 'portfolio_item_list[0].detail.supply_token_list[0].name')}</h4></td>
-                <td style={{textAlign: 'center', width: '33%'}}><h4> Supply </h4></td>
-                <td style={{textAlign: 'right', width: '33%', paddingRight: '30px'}}><h4>{_.get(this.state.ftm_devil, 'portfolio_item_list[0].detail.supply_token_list[0].amount')}</h4></td>
-                </tr>
-                <tr>
-                <td style={{textAlign: 'left', width: '33%'}}><h4>{_.get(this.state.ftm_devil, 'portfolio_item_list[0].detail.reward_token_list[0].name')} </h4></td>
-                <td style={{textAlign: 'center', width: '33%'}}><h4>Reward</h4> </td>
-                <td style={{textAlign: 'right', width: '33%', paddingRight: '30px'}}><h4>{_.get(this.state.ftm_devil, 'portfolio_item_list[0].detail.reward_token_list[0].amount')}</h4></td>
-                </tr>
-                <tr>
-                <td style={{textAlign: 'left', width: '33%'}}><h4>{_.get(this.state.ftm_devil, 'portfolio_item_list[1].detail.supply_token_list[0].name')}</h4></td>
-                <td style={{textAlign: 'center', width: '33%'}}><h4> Supply </h4></td>
-                <td style={{textAlign: 'right', width: '33%', paddingRight: '30px'}}><h4>{_.get(this.state.ftm_devil, 'portfolio_item_list[1].detail.supply_token_list[0].amount')}</h4></td>
-                </tr>
-                <tr>
-                <td style={{textAlign: 'left', width: '33%'}}><h4>{_.get(this.state.ftm_devil, 'portfolio_item_list[1].detail.supply_token_list[1].name')}</h4></td>
-                <td style={{textAlign: 'center', width: '33%'}}><h4> Supply </h4></td>
-                <td style={{textAlign: 'right', width: '33%', paddingRight: '30px'}}><h4>{_.get(this.state.ftm_devil, 'portfolio_item_list[1].detail.supply_token_list[1].amount')}</h4></td>
-                </tr>
-                <tr>
-                <td style={{textAlign: 'left', width: '33%'}}><h4>{_.get(this.state.ftm_devil, 'portfolio_item_list[1].detail.reward_token_list[0].name')}</h4></td>
-                <td style={{textAlign: 'center', width: '33%'}}><h4> Reward </h4></td>
-                <td style={{textAlign: 'right', width: '33%', paddingRight: '30px'}}><h4>{_.get(this.state.ftm_devil, 'portfolio_item_list[1].detail.reward_token_list[0].amount')}</h4></td>
-                </tr>
-                <tr>
-                <td style={{textAlign: 'left', width: '33%'}}><h4>{_.get(this.state.ftm_devil, 'portfolio_item_list[2].detail.supply_token_list[0].name')}</h4></td>
-                <td style={{textAlign: 'center', width: '33%'}}><h4> Supply </h4></td>
-                <td style={{textAlign: 'right', width: '33%', paddingRight: '30px'}}><h4>{_.get(this.state.ftm_devil, 'portfolio_item_list[2].detail.supply_token_list[0].amount')}</h4></td>
-                </tr>
-                <tr>
-                <td style={{textAlign: 'left', width: '33%'}}><h4>{_.get(this.state.ftm_devil, 'portfolio_item_list[2].detail.supply_token_list[1].name')}</h4></td>
-                <td style={{textAlign: 'center', width: '33%'}}><h4> Supply </h4></td>
-                <td style={{textAlign: 'right', width: '33%', paddingRight: '30px'}}><h4>{_.get(this.state.ftm_devil, 'portfolio_item_list[2].detail.supply_token_list[1].amount')}</h4></td>
-                </tr>
-                <tr>
-                <td style={{textAlign: 'left', width: '33%'}}><h4>{_.get(this.state.ftm_devil, 'portfolio_item_list[2].detail.reward_token_list[0].name')}</h4></td>
-                <td style={{textAlign: 'center', width: '33%'}}><h4> Reward </h4></td>
-                <td style={{textAlign: 'right', width: '33%', paddingRight: '30px'}}><h4>{_.get(this.state.ftm_devil, 'portfolio_item_list[2].detail.reward_token_list[0].amount')}</h4></td>
-                </tr>
-                <tr>
-                <td style={{textAlign: 'left', width: '33%'}}><h4>{_.get(this.state.ftm_devil, 'portfolio_item_list[3].detail.supply_token_list[0].name')}</h4></td>
-                <td style={{textAlign: 'center', width: '33%'}}><h4> Supply </h4></td>
-                <td style={{textAlign: 'right', width: '33%', paddingRight: '30px'}}><h4>{_.get(this.state.ftm_devil, 'portfolio_item_list[3].detail.supply_token_list[0].amount')}</h4></td>
-                </tr>
-                <tr>
-                <td style={{textAlign: 'left', width: '33%'}}><h4>{_.get(this.state.ftm_devil, 'portfolio_item_list[3].detail.reward_token_list[0].name')}</h4></td>
-                <td style={{textAlign: 'center', width: '33%'}}><h4> Reward </h4></td>
-                <td style={{textAlign: 'right', width: '33%', paddingRight: '30px'}}><h4>{_.get(this.state.ftm_devil, 'portfolio_item_list[3].detail.reward_token_list[0].amount')}</h4></td>
-                </tr>
-                </table>
-               
-                <h3>{this.state.avax_impermax.name}</h3>
-                <h5>{this.state.avax_impermax.chain} </h5>
-
-                <table style={{width: '100%', backgroundColor: 'lightgoldenrodyellow'}}>
-                <tr>
-                <td style={{textAlign: 'left', width: '33%'}}><h4>{_.get(this.state.avax_impermax, 'portfolio_item_list[0].detail.supply_token_list[0].name')}</h4></td>
-                <td style={{textAlign: 'center', width: '33%'}}><h4> Supply </h4></td>
-                <td style={{textAlign: 'right', width: '33%', paddingRight: '30px'}}><h4>{_.get(this.state.avax_impermax, 'portfolio_item_list[0].detail.supply_token_list[0].amount')}</h4></td>
-                </tr>
-                <tr>
-                <td style={{textAlign: 'left', width: '33%'}}><h4>{_.get(this.state.avax_impermax, 'portfolio_item_list[0].detail.supply_token_list[1].name')}</h4></td>
-                <td style={{textAlign: 'center', width: '33%'}}><h4> Supply </h4></td>
-                <td style={{textAlign: 'right', width: '33%', paddingRight: '30px'}}><h4>{_.get(this.state.avax_impermax, 'portfolio_item_list[0].detail.supply_token_list[1].amount')}</h4></td>
-                </tr>
-                <tr>
-                <td style={{textAlign: 'left', width: '33%'}}><h4>{_.get(this.state.avax_impermax, 'portfolio_item_list[0].detail.borrow_token_list[0].name')}</h4></td>
-                <td style={{textAlign: 'center', width: '33%'}}><h4> Borrow </h4></td>
-                <td style={{textAlign: 'right', width: '33%', paddingRight: '30px'}}><h4>{_.get(this.state.avax_impermax, 'portfolio_item_list[0].detail.borrow_token_list[0].amount')}</h4></td>
-                </tr>
-                <tr>
-                <td style={{textAlign: 'left', width: '33%'}}><h4>{_.get(this.state.avax_impermax, 'portfolio_item_list[0].detail.borrow_token_list[1].name')}</h4></td>
-                <td style={{textAlign: 'center', width: '33%'}}><h4> Borrow </h4></td>
-                <td style={{textAlign: 'right', width: '33%', paddingRight: '30px'}}><h4>{_.get(this.state.avax_impermax, 'portfolio_item_list[0].detail.borrow_token_list[1].amount')}</h4></td>
-                </tr>
-                <tr>
-                <td style={{textAlign: 'left', width: '33%'}}><h4>{_.get(this.state.avax_impermax, 'portfolio_item_list[1].detail.token_list[0].name')}</h4></td>
-                <td style={{textAlign: 'center', width: '33%'}}><h4> -- </h4></td>
-                <td style={{textAlign: 'right', width: '33%', paddingRight: '30px'}}><h4>{_.get(this.state.avax_impermax, 'portfolio_item_list[1].detail.token_list[0].amount')}</h4></td>
-                </tr>
-                </table>
-
-                <h3>{this.state.aurora_trisolaris.name}</h3>
-                <h5>{this.state.aurora_trisolaris.chain} </h5>
-
-                <table style={{width: '100%', backgroundColor: 'lightseagreen'}}>
-                <tr>
-                <td style={{textAlign: 'left', width: '33%'}}><h4>{_.get(this.state.aurora_trisolaris, 'portfolio_item_list[0].detail.supply_token_list[0].name')}</h4></td>
-                <td style={{textAlign: 'center', width: '33%'}}><h4> Supply </h4></td>
-                <td style={{textAlign: 'right', width: '33%', paddingRight: '30px'}}><h4>{_.get(this.state.aurora_trisolaris, 'portfolio_item_list[0].detail.supply_token_list[0].amount')}</h4></td>
-                </tr>
-                </table>
+        <div className="hero">
+            <h1 class="header">
+                <span class="header-line-one">Total: ${Math.round(this.state['items']['total_usd_value'] * 1000) / 1000}</span>
+                <span class="header-line-two">On-Chain Assets</span>
+            </h1>
+        </div>
+        <section class="section-main">
+        <div class="container">
+          <div class="cards">
+            <div class="card">
+              <h2 class="card-header card-header-eth">ETH</h2>
+              <div class="card-content">
+                <p class="label">Total Balance</p>
+                <p class="balance">${Math.round(_.get(this.state['items'], 'chain_list[0].usd_value') * 10000) / 10000}</p>
+              </div>
             </div>
-        </>
+            <div class="card">
+              <h2 class="card-header card-header-ftm">FTM</h2>
+              <div class="card-content">
+                <p class="label">Total Balance</p>
+                <p class="balance">${Math.round(_.get(this.state['items'], 'chain_list[4].usd_value') * 10000) / 10000}</p>
+              </div>
+            </div>
+            <div class="card">
+              <h2 class="card-header card-header-avax">AVAX</h2>
+              <div class="card-content">
+                <p class="label">Total Balance</p>
+                <p class="balance">${Math.round(_.get(this.state['items'], 'chain_list[7].usd_value') * 10000) / 10000}</p>
+              </div>
+            </div>
+            <div class="card">
+              <h2 class="card-header card-header-aurora">AURORA</h2>
+              <div class="card-content">
+                <p class="label">Total Balance</p>
+                <p class="balance">${Math.round(_.get(this.state['items'], 'chain_list[16].usd_value') * 10000) / 10000}</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="protocols">
+            <h3 class="heading-tertiary">Protocols</h3>
+            <div class="component">
+              <div class="component-header">
+                <div class="header-part-one">
+                  <div class="box"></div>
+                  <p class="component-name">{this.state.aave2.name}</p>
+                </div>
+                <p class="header-part-two">{this.state.aave2.chain}</p>
+              </div>
+              <div class="component-content">
+                <div class="content-supply">
+                  <p>{_.get(this.state.aave2, 'portfolio_item_list[0].detail.supply_token_list[0].name')}</p>
+                  <p>Supply</p>
+                  <p>{_.get(this.state.aave2, 'portfolio_item_list[0].detail.supply_token_list[0].amount')}</p>
+                </div>
+                <div class="content-reward">
+                  <p>{_.get(this.state.aave2, 'portfolio_item_list[0].detail.reward_token_list[0].name')}</p>
+                  <p class="reward-para">Reward</p>
+                  <p>{_.get(this.state.aave2, 'portfolio_item_list[0].detail.reward_token_list[0].amount')}</p>
+                </div>
+              </div>
+            </div>
+            <div class="component">
+              <div class="component-header">
+                <div class="header-part-one">
+                  <div class="box"></div>
+                  <p class="component-name">{this.state.olympusdao.name}</p>
+                </div>
+                <p class="header-part-two">{this.state.olympusdao.chain}</p>
+              </div>
+              <div class="component-content">
+                <div class="content-supply">
+                  <p>{_.get(this.state.olympusdao, 'portfolio_item_list[0].detail.supply_token_list[0].name')}</p>
+                  <p>Supply</p>
+                  <p>{_.get(this.state.olympusdao, 'portfolio_item_list[0].detail.supply_token_list[0].amount')}</p>
+                </div>
+              </div>
+            </div>
+            {/*
+            <div class="component">
+              <div class="component-header">
+                <div class="header-part-one">
+                  <div class="box"></div>
+                  <p class="component-name">{this.state.ftm_liquiddriver.name}</p>
+                </div>
+                <p class="header-part-two">{this.state.ftm_liquiddriver.chain}</p>
+              </div>
+              <div class="component-content">
+                <div class="content-supply">
+                  <p>{_.get(this.state.ftm_liquiddriver, 'portfolio_item_list[0].detail.supply_token_list[0].name')}</p>
+                  <p>Supply</p>
+                  <p>{_.get(this.state.ftm_liquiddriver, 'portfolio_item_list[0].detail.supply_token_list[0].amount')}</p>
+                </div>
+              </div>
+            </div>
+            */}
+            <div class="component">
+              <div class="component-header">
+                <div class="header-part-one">
+                  <div class="box"></div>
+                  <p class="component-name">{this.state.ftm_yearn2.name}</p>
+                </div>
+                <p class="header-part-two">{this.state.ftm_yearn2.chain}</p>
+              </div>
+              <div class="component-content">
+                <div class="content-supply">
+                  <p>{_.get(this.state.ftm_yearn2, 'portfolio_item_list[0].detail.supply_token_list[0].name')}</p>
+                  <p>Supply</p>
+                  <p>{_.get(this.state.ftm_yearn2, 'portfolio_item_list[0].detail.supply_token_list[0].amount')}</p>
+                </div>
+              </div>
+            </div>
+            <div class="component">
+              <div class="component-header">
+                <div class="header-part-one">
+                  <div class="box"></div>
+                  <p class="component-name">{this.state.ftm_morpheusswap.name}</p>
+                </div>
+                <p class="header-part-two">{this.state.ftm_morpheusswap.chain}</p>
+              </div>
+              <div class="component-content">
+                <div class="content-supply">
+                  <p>{_.get(this.state.ftm_morpheusswap, 'portfolio_item_list[0].detail.supply_token_list[0].name')}</p>
+                  <p>Supply</p>
+                  <p>{_.get(this.state.ftm_morpheusswap, 'portfolio_item_list[0].detail.supply_token_list[0].amount')}</p>
+                </div>
+                <div class="content-reward">
+                  <p>{_.get(this.state.ftm_morpheusswap, 'portfolio_item_list[0].detail.reward_token_list[0].name')}</p>
+                  <p class="reward-para">Reward</p>
+                  <p>{_.get(this.state.ftm_morpheusswap, 'portfolio_item_list[0].detail.reward_token_list[0].amount')}</p>
+                </div>
+              </div>
+            </div>
+            <div class="component">
+              <div class="component-header">
+                <div class="header-part-one">
+                  <div class="box"></div>
+                  <p class="component-name">{this.state.ftm_soul.name}</p>
+                </div>
+                <p class="header-part-two">{this.state.ftm_soul.chain}</p>
+              </div>
+              <div class="component-content">
+                <div class="content-supply">
+                  <p>{_.get(this.state.ftm_soul, 'portfolio_item_list[0].detail.supply_token_list[0].name')}</p>
+                  <p>Supply</p>
+                  <p>{_.get(this.state.ftm_soul, 'portfolio_item_list[0].detail.supply_token_list[0].amount')}</p>
+                </div>
+                <div class="content-reward">
+                  <p>{_.get(this.state.ftm_soul, 'portfolio_item_list[0].detail.reward_token_list[0].name')}</p>
+                  <p class="reward-para">Reward</p>
+                  <p>{_.get(this.state.ftm_soul, 'portfolio_item_list[0].detail.reward_token_list[0].amount')}</p>
+                </div>
+              </div>
+            </div>
+            <div class="component">
+              <div class="component-header">
+                <div class="header-part-one">
+                  <div class="box"></div>
+                  <p class="component-name">{this.state.ftm_yieldwolf.name}</p>
+                </div>
+                <p class="header-part-two">{this.state.ftm_yieldwolf.chain}</p>
+              </div>
+              <div class="component-content">
+                <div class="content-supply">
+                  <p>{_.get(this.state.ftm_yieldwolf, 'portfolio_item_list[0].detail.supply_token_list[0].name')}</p>
+                  <p>Supply</p>
+                  <p>{_.get(this.state.ftm_yieldwolf, 'portfolio_item_list[0].detail.supply_token_list[0].amount')}</p>
+                </div>
+              </div>
+            </div>
+            <div class="component">
+              <div class="component-header">
+                <div class="header-part-one">
+                  <div class="box"></div>
+                  <p class="component-name">{this.state.ftm_3omb.name}</p>
+                </div>
+                <p class="header-part-two">{this.state.ftm_3omb.chain}</p>
+              </div>
+              <div class="component-content">
+                <div class="content-supply">
+                  <p>{_.get(this.state.ftm_3omb, 'portfolio_item_list[0].detail.supply_token_list[0].name')}</p>
+                  <p>Supply</p>
+                  <p>{_.get(this.state.ftm_3omb, 'portfolio_item_list[0].detail.supply_token_list[0].amount')}</p>
+                </div>
+                <div class="content-reward">
+                  <p>{_.get(this.state.ftm_3omb, 'portfolio_item_list[0].detail.reward_token_list[0].name')}</p>
+                  <p class="reward-para">Reward</p>
+                  <p>{_.get(this.state.ftm_3omb, 'portfolio_item_list[0].detail.reward_token_list[0].amount')}</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="component">
+              <div class="component-header">
+                <div class="header-part-one">
+                  <div class="box"></div>
+                  <p class="component-name">{this.state.ftm_devil.name}</p>
+                </div>
+                <p class="header-part-two">{this.state.ftm_devil.chain}</p>
+              </div>
+              <div class="component-content">
+                <div class="content-supply">
+                  <p>{_.get(this.state.ftm_devil, 'portfolio_item_list[0].detail.supply_token_list[0].name')}</p>
+                  <p>Supply</p>
+                  <p>{_.get(this.state.ftm_devil, 'portfolio_item_list[0].detail.supply_token_list[0].amount')}</p>
+                </div>
+                <div class="content-reward">
+                  <p>{_.get(this.state.ftm_devil, 'portfolio_item_list[0].detail.reward_token_list[0].name')}</p>
+                  <p class="reward-para">Reward</p>
+                  <p>{_.get(this.state.ftm_devil, 'portfolio_item_list[0].detail.reward_token_list[0].amount')}</p>
+                </div>
+                <div class="content-supply">
+                  <p>{_.get(this.state.ftm_devil, 'portfolio_item_list[1].detail.supply_token_list[0].name')}</p>
+                  <p>Supply</p>
+                  <p>{_.get(this.state.ftm_devil, 'portfolio_item_list[1].detail.supply_token_list[0].amount')}</p>
+                </div>
+                <div class="content-supply">
+                  <p>{_.get(this.state.ftm_devil, 'portfolio_item_list[1].detail.supply_token_list[1].name')}</p>
+                  <p>Supply</p>
+                  <p>{_.get(this.state.ftm_devil, 'portfolio_item_list[1].detail.supply_token_list[1].amount')}</p>
+                </div>
+                <div class="content-reward">
+                  <p>{_.get(this.state.ftm_devil, 'portfolio_item_list[1].detail.reward_token_list[0].name')}</p>
+                  <p class="reward-para">Reward</p>
+                  <p>{_.get(this.state.ftm_devil, 'portfolio_item_list[1].detail.reward_token_list[0].amount')}</p>
+                </div>
+                <div class="content-supply">
+                  <p>{_.get(this.state.ftm_devil, 'portfolio_item_list[2].detail.supply_token_list[0].name')}</p>
+                  <p>Supply</p>
+                  <p>{_.get(this.state.ftm_devil, 'portfolio_item_list[2].detail.supply_token_list[0].amount')}</p>
+                </div>
+                <div class="content-supply">
+                  <p>{_.get(this.state.ftm_devil, 'portfolio_item_list[2].detail.supply_token_list[1].name')}</p>
+                  <p>Supply</p>
+                  <p>{_.get(this.state.ftm_devil, 'portfolio_item_list[2].detail.supply_token_list[1].amount')}</p>
+                </div>
+                <div class="content-reward">
+                  <p>{_.get(this.state.ftm_devil, 'portfolio_item_list[2].detail.reward_token_list[0].name')}</p>
+                  <p class="reward-para">Reward</p>
+                  <p>{_.get(this.state.ftm_devil, 'portfolio_item_list[2].detail.reward_token_list[0].amount')}</p>
+                </div>
+                <div class="content-supply">
+                  <p>{_.get(this.state.ftm_devil, 'portfolio_item_list[3].detail.supply_token_list[0].name')}</p>
+                  <p>Supply</p>
+                  <p>{_.get(this.state.ftm_devil, 'portfolio_item_list[3].detail.supply_token_list[0].amount')}</p>
+                </div>
+                <div class="content-reward">
+                  <p>{_.get(this.state.ftm_devil, 'portfolio_item_list[3].detail.reward_token_list[0].name')}</p>
+                  <p class="reward-para">Reward</p>
+                  <p>{_.get(this.state.ftm_devil, 'portfolio_item_list[3].detail.reward_token_list[0].amount')}</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="component">
+              <div class="component-header">
+                <div class="header-part-one">
+                  <div class="box"></div>
+                  <p class="component-name">{this.state.avax_impermax.name}</p>
+                </div>
+                <p class="header-part-two">{this.state.avax_impermax.chain}</p>
+              </div>
+              <div class="component-content">
+                <div class="content-supply">
+                  <p>{_.get(this.state.avax_impermax, 'portfolio_item_list[0].detail.supply_token_list[0].name')}</p>
+                  <p>Supply</p>
+                  <p>{_.get(this.state.avax_impermax, 'portfolio_item_list[0].detail.supply_token_list[0].amount')}</p>
+                </div>
+                <div class="content-supply">
+                  <p>{_.get(this.state.avax_impermax, 'portfolio_item_list[0].detail.supply_token_list[1].name')}</p>
+                  <p>Supply</p>
+                  <p>{_.get(this.state.avax_impermax, 'portfolio_item_list[0].detail.supply_token_list[1].amount')}</p>
+                </div>
+                <div class="content-borrow">
+                  <p>{_.get(this.state.avax_impermax, 'portfolio_item_list[0].detail.borrow_token_list[0].name')}</p>
+                  <p>Borrow</p>
+                  <p>{_.get(this.state.avax_impermax, 'portfolio_item_list[0].detail.borrow_token_list[0].amount')}</p>
+                </div>
+                <div class="content-borrow">
+                  <p>{_.get(this.state.avax_impermax, 'portfolio_item_list[0].detail.borrow_token_list[1].name')}</p>
+                  <p>Borrow</p>
+                  <p>{_.get(this.state.avax_impermax, 'portfolio_item_list[0].detail.borrow_token_list[1].amount')}</p>
+                </div>
+                <div class="content-unknown">
+                  <p>{_.get(this.state.avax_impermax, 'portfolio_item_list[1].detail.token_list[0].name')}</p>
+                  <p>--</p>
+                  <p>{_.get(this.state.avax_impermax, 'portfolio_item_list[1].detail.token_list[0].amount')}</p>
+                </div>
+              </div>
+            </div>
+            <div class="component">
+              <div class="component-header">
+                <div class="header-part-one">
+                  <div class="box"></div>
+                  <p class="component-name">{this.state.aurora_trisolaris.name}</p>
+                </div>
+                <p class="header-part-two">{this.state.aurora_trisolaris.chain}</p>
+              </div>
+              <div class="component-content">
+                <div class="content-supply">
+                  <p>{_.get(this.state.aurora_trisolaris, 'portfolio_item_list[0].detail.supply_token_list[0].name')}</p>
+                  <p>Supply</p>
+                  <p>{_.get(this.state.aurora_trisolaris, 'portfolio_item_list[0].detail.supply_token_list[0].amount')}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
         );
     }
 }

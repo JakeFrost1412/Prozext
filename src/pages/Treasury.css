@@ -1,0 +1,161 @@
+.btn:link,
+.btn:visited {
+  display: inline-block;
+  text-decoration: none;
+  padding: 1.6rem 1rem;
+  border-radius: 9px;
+  font-weight: 500;
+}
+
+.balance {
+    font-size: x-large;
+}
+
+.btn-connect {
+  color: #000;
+  background-color: #fff;
+  margin-right: 0.8rem;
+}
+
+.btn-disconnect {
+  color: #fff;
+  background-color: #e34234;
+}
+
+.hero {
+  height: 25.6rem;
+  padding: 4.8rem;
+}
+
+.header {
+  font-size: 4rem;
+  font-weight: 400;
+}
+
+.header span {
+  display: block;
+}
+
+.header-line-one {
+  margin-bottom: 2.4rem;
+}
+
+.section-main {
+  background-color: #151521;
+  color: #fff;
+}
+
+.container {
+  max-width: 120rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cards {
+  margin-bottom: 2.4rem;
+  display: flex;
+  gap: 7.2rem;
+  transform: translateY(-3.2rem);
+}
+
+.card {
+  border-radius: 9px;
+  overflow: hidden;
+  width: 30.5rem;
+  filter: drop-shadow(0px 2px 14px rgba(228, 228, 228, 0.25));
+}
+
+.card-header {
+  padding: 1.6rem 6.4rem;
+  text-align: center;
+}
+
+.card-header-eth {
+  background: #8950fc;
+}
+
+.card-header-ftm {
+  background: #3699ff;
+}
+
+.card-header-avax {
+  background: #ffa800;
+}
+
+.card-header-aurora {
+  background: #f64e60;
+}
+
+.card-content {
+  padding: 4.8rem;
+  background-color: #000;
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.protocols {
+  /*align-self: flex-start;*/
+  background-color: #1e1e2d;
+  width: 150rem;
+  padding: 2.4rem 4.8rem;
+}
+
+.heading-tertiary {
+  font-size: 2.8rem;
+  margin-bottom: 2.4rem;
+}
+
+.component:not(:last-child) {
+  margin-bottom: 2.4rem;
+}
+
+.component-header {
+  margin-bottom: 2.4rem;
+}
+
+.header-part-one {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 0.8rem;
+}
+
+.box {
+  width: 1.8rem;
+  height: 1.8rem;
+  background: #f6f6f6;
+}
+
+.component-name {
+  font-size: 1.4rem;
+  padding: 0.3rem 0.6rem;
+  background: #7919da;
+  border-radius: 100vh;
+}
+
+.header-part-two {
+  color: #7919da;
+  font-weight: 500;
+  margin-left: 1.2rem;
+}
+
+.content-supply,
+.content-reward,
+.content-borrow,
+.content-unknown {
+  padding: 0 3.2rem;
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 0.4rem;
+  padding-top: 0.4rem;
+}
+
+.reward-para {
+  transform: translateX(4px);
+}
+
